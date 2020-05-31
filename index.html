@@ -1,3 +1,89 @@
 <html>
+    <script>
+        function computerPlay()
+        {
+            let choices =['rock','paper','scissors'];
+           let selector=  Math.floor(Math.random() * Math.floor(3));
+           console.log(choices[selector]);
+           return choices[selector];
+        }
 
+        function userPlay()
+        {
+            let user =prompt('Enter your choice:');
+        if (user !=null)
+        {
+            let usermod= user.toLowerCase();
+        }
+        if (usermod == 'rock' || usermod == 'paper' || usermod == 'scissors')
+        {
+            return usermod;
+        }
+            else
+            {
+                alert('Please enter a choice: rock, paper or scissors');
+                userPlay();
+             }
+
+        }
+        
+        function decideWinner()
+        {
+
+            let compChoice = computerPlay();
+            let userChoice =userPlay();
+            let u="Player";
+            let c='computer';
+
+            /*console.log(`Computer throw is ${compChoice}.`);
+            console.log(`user Throw is ${userChoice}.`);*/
+            console.log('*****RESULT*******');
+
+            if (userChoice==compChoice)
+            {
+            	console.log('No Winner Play again!')
+              return;
+            }
+                
+
+            
+            switch(userChoice)
+            {
+                case 'rock':
+                if (compChoice=='paper')
+                {
+                    console.log(`${c} is the winner with throw: ${compChoice} loser is ${u} with ${userChoice}`);
+                }
+                else if (compChoice=='scissors')
+                {
+                    console.log(`${u} is the winner with throw: ${userChoice} loser is ${c} with ${compChoice}`);
+                }
+                break;
+
+                case 'paper':
+                if (compChoice=='rock')
+                {
+                    console.log(`${u} is the winner with throw: ${userChoice} loser is ${c} with ${compChoice}`);
+                }
+                else if (compChoice== 'scissors')
+                {
+                    console.log(`${c} is the winner with throw: ${compChoice} loser is ${u} with ${userChoice}`);
+                }
+                break;
+
+                case 'scissors':
+                if (compChoice== 'rock')
+                {
+                    console.log(`${c} is the winner with throw: ${compChoice} loser is ${u} with ${userChoice}`);
+                }
+                else if (compChoice=='paper')
+                {
+                    console.log(`${u} is the winner with throw: ${userChoice} loser is ${c} with ${compChoice}`);
+                }
+                break;
+            }
+        }
+
+
+    </script>
 </html>
