@@ -1,22 +1,28 @@
 <html>
     <script>
+        playRound();
+
         function computerPlay()
         {
             let choices =['rock','paper','scissors'];
            let selector=  Math.floor(Math.random() * Math.floor(3));
-           console.log(choices[selector]);
+           console.log("Computer plays:" + choices[selector]);
            return choices[selector];
         }
 
         function userPlay()
         {
             let user =prompt('Enter your choice:');
+            let usermod= user.toLowerCase();
+          
         if (user !=null)
         {
-            let usermod= user.toLowerCase();
+            console.log(`value of user ${user.toLowerCase()}.`);
+            
         }
         if (usermod == 'rock' || usermod == 'paper' || usermod == 'scissors')
         {
+            console.log(`value to be returned:${usermod}.`);
             return usermod;
         }
             else
@@ -27,11 +33,13 @@
 
         }
         
-        function decideWinner()
+        function playRound()
         {
 
             let compChoice = computerPlay();
+           
             let userChoice =userPlay();
+           
             let u="Player";
             let c='computer';
 
@@ -41,8 +49,9 @@
 
             if (userChoice==compChoice)
             {
-            	console.log('No Winner Play again!')
-              return;
+                console.log('No Winner Play again!')
+                playRound();
+              
             }
                 
 
@@ -84,6 +93,6 @@
             }
         }
 
-
+     
     </script>
 </html>

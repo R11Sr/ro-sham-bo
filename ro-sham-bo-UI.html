@@ -1,0 +1,125 @@
+<html>
+<body>
+    <h3>Please select your play</h3>
+    <button id="rock"> Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+
+    <div id="container">
+        <span><h4>Result</h4></span>
+    </div>
+
+
+    
+</body>
+
+
+<script>
+//    once a button is clicked it activates the JS
+   window.addEventListener('click', function(e)
+   {
+    const btn = document.querySelectorAll('button');
+
+
+    game();
+    function game()
+    {
+
+ let userChoice=e.target.id; // captures the player selection
+let compChoice =computerPlay();
+
+let u="Player";
+ let c='computer';
+
+            // if there is no winner the player reloaded after 2.5 seconds
+            if (userChoice==compChoice)
+            {
+                
+                const content = document.createElement('div');
+                content.textContent = 'No Winner Play again!';
+                container.appendChild(content);
+                
+                setTimeout(function(){location.reload();},2500);
+
+                
+                
+              
+            }
+                
+
+            // decide who is the winner and displays the result
+            switch(userChoice)
+            {
+                case 'rock':
+                if (compChoice=='paper')
+                {
+                    const content = document.createElement('div');
+                content.textContent = `${c} is the winner with throw: ${compChoice} loser is ${u} with ${userChoice}`;
+                container.appendChild(content);
+                    // console.log(`${c} is the winner with throw: ${compChoice} loser is ${u} with ${userChoice}`);
+                }
+                else if (compChoice=='scissors')
+                {
+                    const content = document.createElement('div');
+                content.textContent = `${u} is the winner with throw: ${userChoice} loser is ${c} with ${compChoice}`;
+                container.appendChild(content);
+                    // console.log(`${u} is the winner with throw: ${userChoice} loser is ${c} with ${compChoice}`);
+                }
+                break;
+
+                case 'paper':
+                if (compChoice=='rock')
+                {
+                    const content = document.createElement('div');
+                content.textContent = `${u} is the winner with throw: ${userChoice} loser is ${c} with ${compChoice}`;
+                container.appendChild(content);
+                    // console.log(`${u} is the winner with throw: ${userChoice} loser is ${c} with ${compChoice}`);
+                }
+                else if (compChoice== 'scissors')
+                {
+                    const content = document.createElement('div');
+                content.textContent = `${c} is the winner with throw: ${compChoice} loser is ${u} with ${userChoice}`;
+                container.appendChild(content);
+                    // console.log(`${c} is the winner with throw: ${compChoice} loser is ${u} with ${userChoice}`);
+                }
+                break;
+
+                case 'scissors':
+                if (compChoice== 'rock')
+                {
+                    const content = document.createElement('div');
+                content.textContent = `${c} is the winner with throw: ${compChoice} loser is ${u} with ${userChoice}`;
+                container.appendChild(content);
+
+                    // console.log(`${c} is the winner with throw: ${compChoice} loser is ${u} with ${userChoice}`);
+                }
+                else if (compChoice=='paper')
+                {
+                    const content = document.createElement('div');
+                content.textContent = `${u} is the winner with throw: ${userChoice} loser is ${c} with ${compChoice}`;
+                container.appendChild(content);
+                    // console.log(`${u} is the winner with throw: ${userChoice} loser is ${c} with ${compChoice}`);
+                }
+                break;
+            }
+    }
+
+})
+
+// computer plays by random
+   function computerPlay()
+        {
+            let choices =['rock','paper','scissors'];
+           let selector=  Math.floor(Math.random() * Math.floor(3));
+           console.log("Computer plays:" + choices[selector]);
+           return choices[selector];
+        }
+
+
+
+</script>
+
+
+
+
+</html>
